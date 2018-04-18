@@ -1,0 +1,60 @@
+<p>
+ Person list
+</p>
+ 
+
+<table  ng-table="vm.tableParams" class="table table-bordered" show-filter="true">
+  <thead> 
+    <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Birthadte</th>
+          <th>Single</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of tableau" >
+        <td title="'Id'" filter="{ id: 'number'}" sortable="'id'">
+            {{item.id}}</td>
+        <td title="'Name'" filter="{ name: 'text'}" sortable="'name'">
+            {{item.name}}</td>
+        <td title="'Birthadte'" filter="{ age: 'number'}" sortable="'age'">
+            {{item.birthdate}}</td>
+            <td title="'Sigle'" filter="{ single: 'boolean'}" sortable="'single'">
+                {{item.single}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="container">
+    <h1>Add Person</h1>
+    <form (submit)="addperson()">
+            <div class="form-group" >
+                    <label for="idp">Id</label>
+                    <input type="text" class="form-control" id="idp"  name="idp" required [(ngModel)]="varP.id">
+                  </div>
+      <div class="form-group" >
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"  name="name" required [(ngModel)]="varP.name">
+      </div>
+
+      <div class="form-group">
+        <label for="birthdate">Birthdate</label>
+        <input type="date" class="form-control" id="birthdate" name="birthdate" [(ngModel)]="varP.birthdate">
+      </div>
+      
+      <div class="btn-group btn-group-toggle" ngbRadioGroup name="single" [(ngModel)]="varP.single">
+        
+        <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" value="true"> Yes
+        </label>
+        <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" value="false"> No
+        </label>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-success" >Submit</button>
+
+    </form>
+</div>
+

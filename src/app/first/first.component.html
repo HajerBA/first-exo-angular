@@ -1,0 +1,15 @@
+
+<p [id]="idP">{{ 2 +3 }}</p>
+
+<button (click)="methode()">Click !</button>
+
+<section *ngIf="showSection">
+    {{maVariable}}
+</section>
+
+<p *ngFor="let item of tableau">{{item}}</p>
+
+<input type="text" [(ngModel)]="input">
+<button (click)="add()">Send</button>
+
+
